@@ -1,0 +1,42 @@
+Nick McComb CS163
+3/19/2013
+
+Assignment #5
+
+I used the two unix tools grep and man. Grep has turned out to be a great tool to search using unix, while on putty to determine the location of strings for debugging (which file they were in). While that is pretty convenient, man is a much more promising command. Using it, I was able to learn a little better how to work gdb, and I have started using it a little bit. It looks to be a great tool that I can use to get help with many things that I do not understand in unix.
+
+nmccomb:~/cs163/hw/assign5/assign1/:511 > make -f makefile
+g++ -c menu.cpp
+g++ -c graph.cpp
+graph.cpp: In member function 'int graphType::adjVert(int, dataType*)':
+graph.cpp:64: error: declaration of 'dataType data' shadows a parameter
+graph.cpp:70: error: no match for 'operator=' in 'data = (dataType*)(((dataType (*)[((unsigned int)data.dataType::count)])operator new [](((((unsigned int)data.dataType::count) * 20u) + 4u))), (((*((<anonymous> + 4u) - 4u)) <unknown operator> ((unsigned int)data.dataType::count)), ((*(dataType (*)[((unsigned int)data.dataType::count)])({...})), <anonymous>)))'
+mapping.h:31: note: candidates are: dataType& dataType::operator=(const dataType&)
+graph.cpp:77: error: no match for 'operator[]' in 'data[index]'
+graph.cpp:77: error: 'struct edgeNode' has no member named 'data'
+make: *** [graph.o] Error 1
+nmccomb:~/cs163/hw/assign5/assign1/:511 >
+
+This occured when I was attempting to pass back data from the ADT to the client program.
+I am not entirely sure as to what it means, so I cannot exactly supply a better alternative.
+
+ERROR TWO:
+
+nmccomb:~/cs163/hw/assign5/v1/:509 > make -f makefile
+g++ -c menu.cpp
+g++ -c graph.cpp
+g++ -c mapping.cpp
+mapping.cpp:1: error: 'integrate' does not name a type
+/usr/local/include/g++/sparc-sun-solaris2.10/bits/c++config.h:47: error: '__gnu_debug_def' is not a namespace-name
+/usr/local/include/g++/sparc-sun-solaris2.10/bits/c++config.h:47: error: expected namespace-name before ';' token
+make: *** [mapping.o] Error 1
+
+I figured out it meant there was extraneous text at the beginning of the file
+This could have been replaced with something like: "Random text", "unrecognized text" or something else along those lines.
+
+I did not recieve any other cryptic error messages while working on program #5
+
+3)
+ a) & b)  A heap and a heapsort both benefit when they are implemented using a complete binary tree because of the increase in preformance based on the assurance of a minimal height.
+ c)  Depth first search can be easer to understand the process of the alogithm as a user, because it is more as a person would think, rather than finding all of the options first.
+ d) It can greatly help user-interface if an adjacency's edges are sorted, as it can help sort the edges and make them easier to interpret.

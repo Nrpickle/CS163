@@ -1,0 +1,2 @@
+Pass a statically allocated struct with the data into the ADT, then copy it into a new dynamically allocated class, then pass the class into the ADT's
+

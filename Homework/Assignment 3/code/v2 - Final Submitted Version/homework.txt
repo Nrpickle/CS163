@@ -1,0 +1,58 @@
+Nick McComb CS163
+Assignment #3
+
+1.
+
+Flexible Array
+With the flexible array, you get an increase in access speed for all operations (Insert, Remove, Retrieve, and Display), but only after the requted (if neccessary) travesal to get to the appropriate position. But this is still a large benefit over having to purely traverse to the information.
+
+Hash Table
+With a hash table you gain an increase in the access time with all of the search keys, but you lose the ability to display all of the information in an order that will make any logical sense.
+	
+2. 
+
+As a designer of an ADT, it is our responsibility to provide reasonably quick response times, while responsibly using memory. When developoing a table ADT, it is important to account for, if possible, the data that is going to be recieved. It is important to ensure that all requirements of the design of an ADT, such as fast retrieval time, are maintained when developing an ADT, because if these are not mainatained, then that could be considered an ethical breach of the definition of that the designer was supposed to make.
+
+3.
+
+Source Code Control
+
+Source Code Control is a code versioning software that allows versions and revisions of a software to be saved.
+
+Makefile
+
+A makefile is a file that simplifies the compilation and linking of code that is to be compiled.
+
+It can be used to simplify and speed up the compliation of source code, because it can be used to complile only what is necessary.
+
+Truth Table
+
+A truth table is a visual representation of boolean logic.
+
+It can be used to assist in the creation and debugging of boolean logic.
+
+Namespace
+
+A namespace is a 'container' that can be used to group together a group of identifiers so that they can be defined  specifically in relation to their appropritate functions, while the same identifiers could have a different definition in a different namespace.
+
+GDB
+
+The GNU Debugger is a debugger that allows for detailed debugging of programming languages.
+
+It can be used to observe the status of variables and can call functions indepently of the main execuction of the program.
+
+Operand
+
+An operand is the object of a mathmatical operation.
+
+For example in the following equation, 5 and 3 are operands
+
+5 * 3 = 15
+
+grep
+
+grep is a plain text searching program. It allows for the searching of files to find a provided search term.
+
+An example of the usage of the command follows:
+
+grep |search term| |filename|

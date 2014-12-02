@@ -1,0 +1,55 @@
+Nick McComb CS163
+Algorithm
+Assignment #4
+
+
+Algorithm
+
+For this program I worked on making my data structure a lot simpler and more modular. I focused on working on reducing the amount of manual copying and related actions that happened in the main algorithms. There is a lot of separation between the binary search tree and the actual data that is stored in it. All it really does is manage the nodes, and it simply calls functions that move the data around that interface with a class that is stored in the nodes.
+
+When I approached this problem, with the intent of making my program much more modular, I designed it such that the data was mostly handled in a separate function from the BST's function, so all of the deallocation (and allocation) is handled in a separate class for the data which greatly simplified the development of the ADT.
+
+This data structure performs very well for the assigned application because it allows for the efficient storage of information, while also allowing it to be sorted extremely easily. I do not know of a data structure that would work better. This data structure was efficient because it allows for minimal traversal to get to data structure, and my design was efficient because it stored a second key in the nodes, so that when an item was wanted to be deleted, then it could be deleted without having to search the other trees (because there were two trees that were used, one that organizes by topic, and the other by course). In this specific application, it is not efficient because it actually stores two copies of the data, and if I had more time to solve the problem, I would make it so that both trees pointed to the same data class, which would then eliminate some of the inefficiencies of the current implementation. 
+
+
+Main Executing Function's algorithm:
+
+	1. Display Choices to user
+	2. Read in the user's choice
+	3. Process the choice
+		a. If the user wants to add a topic
+			i. Read in the information for the topic
+			ii. Insert the topic into both lists, directing the trees to place the appropriate search key in the appropriate place
+		b. If the user wants to display courses
+			i. Determine if the user wants to sort by topic or by course
+			ii. Tell the correct tree to display in sorted order their contents
+		c. If the user wants to delete a topic or delete from a course
+			i. Determine if the user wants to delete by topic or by course
+			ii. Send a request to the appropriate trees instructing them to delete the appropriate entries
+		d. If the user wants to search for a topic
+			i. Determine if the user wants to search by topic or by course
+			ii. Read in the name of the search key
+			iii. Search the relevant tree for the information, then return it to the client program, which then outputs it
+		f. If the user chose to exit the function
+			i.  Exit the loop
+			ii. If they did not, continue to loop the function
+			
+
+
+			
+There are a number of algorithms associated with the binary search tree.
+
+	1. Insert new topic
+		i. Determine, based on the passed number, whether the data that has been passed should be inserted as a primary search key or as an alternate search key
+			I. The originally called function then calls the addAtEnd function which then adds the passed data to the end of the binary search tree, sorted based upon the primary search key (the alternate key that is not used, is still inserted so that it can be deleted later
+	2. Display all of the contents in sorted order
+		i. When this is called, the program then recursively cycles through all of the currently contained information and outputs it to the user
+	3. Remove the passed search value
+		i. Search for the desired value in the tree, and when it is found
+		ii. Remove the node from the tree
+	4. Retrieve the passed search value
+		i. Determine if the user wants to retrieve by topic or by course
+		ii. Search for the desired value in the tree, then copy the value into the passed 'blank' data structure that was passed in
+	5. Gets the height of the tree
+	6. Remove all
+

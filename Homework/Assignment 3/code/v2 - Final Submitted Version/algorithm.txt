@@ -1,0 +1,70 @@
+Nick McComb CS163
+
+Assignment #3
+2/21/2013
+
+
+This assignment allows for the processing and storage of the commands for a video game. This program implements a Hash Table ADT to allow for the efficient and appropriate storage of the commands. This specific program, with a test client program in place, allows the user (in the specific context of this test program) to add a new command to the list, remove a command (by name), and to retrieve and display a command. 
+
+There are also several other debugging actions that can be preformed but are not in the displayed menu choices. They are as follows: "777" Displays the length of all of the chains in the program, "888" prompts the user for an amount of data, then fills the table with that amount of random information, and "999" displays all of the information currently in the hash table.
+
+
+The main executing loop of the function has a the main function loop until the manager() function, which is its condition, returns false. The manager function is a 4 step function. First, it displays the menu choices. Then it prompts the user for their choice, then it acts upon 
+
+Main Executing Function's algorithm:
+
+	1. Display Choices to user
+	2. Read in the user's choice
+	3. Process the choice
+		a. If the user wants to add a command
+			i. Read in the information for the command
+			ii. Tell the hash table to insert the command
+		b. If the user wants to delete a command
+			i. Read in the name of the command to be deleted
+			ii. Tell the hash table to delete the command
+		c. If the user wants to retrieve a command
+			i. Read in the name of the command to be retrieved
+			ii. Retrieve the command from the passed temporary command
+		f. If the user chose to exit the function
+			i.  Exit the loop
+			ii. If they did not, continue to loop the function
+
+			
+Hash Table algorithm
+
+The hash table ADT has ___ main algorithms that are associated with it
+	1. Insert command
+		a. Pass the passed key to the hash function to determine its proper index point
+		b. Insert the command's information at the head of the index that was indicated by the hash funciton.
+			i. If there aren't any nodes in the specified list, create a new list
+			ii. If there are, add at the head
+	2. Delete (remove) command
+		a. Pass the passed key to the hash function to determine its proper index point
+		b. Search for the desired command
+			i. If there is only one command in the list
+				1. Delete the command and set the head node to NULL
+			ii. If the command is not at the head position, and there are more collisions, search until the desired command name key has been found in the active chain
+				1. If the command has been found, then delete it and connect up the chain
+			iii. If the command has not been found in the chain, there is no command
+				1. Return error state
+	3. Retrieve command
+		a. Pass the passed key to the hash function to determine its proper index point
+		b. Search for the desired command
+			i. If there is only one command in the list of collisions
+				1. Return the information that is found 
+			ii. If the command is not at the head position, and there are more collisions, search until the desired command name key has been found in the active chain
+				1. If the command has been found, then return the information from the relevant node
+			iii. If the command has not been found in the chain, there is no command
+				1. Return error state
+	
+	
+1) How well did the data structure selected perform for the assigned application?
+	This data structure works extremely well fot the assigned application, because the commands would only be accessed by the system, so that there would be no reason to display all of the information in any order, as they would only have to be accessed by the game program itself, not the user.
+2) Would a different data structure work better? If so, which one and why...
+	I do not know of any data structure that would have worked better in this application.
+3) What was efficient about your design and use of the data structure?
+	This design was efficient because it allows quick access of all of the data, along with any size of table that can be supported by memory.
+4) What was not efficient?
+	The design was not efficeint because, if there was a need to, there is no wasy to display the commands in any order that makes sense.
+5) What would you do differently if you had more time to solve the problem?	
+	There would be nothing major that I would do differently if I had more time to solve the problem.

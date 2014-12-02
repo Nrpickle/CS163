@@ -1,0 +1,65 @@
+Nick McComb CS163
+Assignment 1
+
+Design Write Up
+
+	For this assignment, I implemented a flexible array as the main data structure in the program. In the Abstract Data Type, there is a linear linked list of arrays of the data that is stored. The symbol table is stored in a struct data strucure that allows it to be treated as 'one object' in the arrays that are in the nodes. There will always be another member of an array that is avaliable to write to. All input is done within the menu class then is sent to the ADT, which is the mappingType class, implemented in the program as map. 
+	
+	The menu class fills out a dataType struct with all of the appropriate data, and then passes this by reference to the ADT, which then copies all of the data into the next avaliable position in the flexible array. If it calculates that it needs another node to do so, it appends a node onto the end of the Linear Linked List that is stored in the mappingType. The program is designed will some extra padding with regard to the nodes, so there is usually one extra space to write to, which provides a safety against reading from something that isn't there, and requires minimal memory.
+	
+	In regards to deletion, the method that I used to achieve deletion-like effect, was that every dataType that holds symbol table information has an additional boolean value of "valid". This value has an inital value of true, which indicates that the information is valid. When outputting the data, within the iteration that cycles through all of the values, it checks to see if the current array is valid. If it is valid, then it will display it. If it is not valid then it does not display it. If this program wrote to a file, these could be easily deleted by simply not writing the non-valid entries to the file.
+	
+	The way that the numbering system works is that as the system works, when recieving data, the overall count determines the id, and that becomes the id that is associated with that name, and does not change.
+	
+1) 
+	This data structure works excellently for this purpose. It allows for quick access and also allows for a very flexible and essentially limitless size (its only limited by the avaliable memory to the computer). It is also significantly more efficient than a linear linked list alone, and can be scaled to have array's of any size.
+2)
+	I do not, at this moment, know of a more efficient data structure for this application. 
+3)
+	This design is fairly efficient. It balances the trade offs of direct access with the flexibility of linear linked lists.
+	The output is efficient because it limits the traversal when it is outputting the information by only traversing when it needs to, versus every time it outputs data.
+4)
+	The program is not as efficient as it could be when it is inserting data, because it traverses the entire list untill the last entered data point to insert the next one. In this section, and also the appending of nodes, a tail pointer would make this be much more efficient.
+5)
+	If I had more time, then I would implement a tail pointer, along with other, smaller efficiency increases.
+	
+	
+Client Program Algorithm
+
+1_ Loop until user says to ext
+	1a_ Get user choice
+	1b_ Preform an action based on user's selection
+		1b 
+			i_ If add new data
+				1_ Input user data
+				2_ Send user data to ADT
+			ii_ If display all
+				1_ Instruct ADT to display all currently held information
+			iii_ If delete
+				1_ Send the id of the target data to the ADT in a delete() function
+			iv_  If search
+				1_ Pass the desired number to the ADT along with a empty data strucrure to recieve the results of the search (if there are any)
+				2_ Output the results of the search to the screen
+			v_ If delete all
+				1_ Instruct the ADT to delete all
+			vi_ If exit
+				Set a variable within the menu class to return and indicate that it is time to exit
+				
+ADT Program Algorithm
+
+1_ If passed new data
+	a_ Determine the "address" of the data (which in the context of this program is the amount of traversal and the array Index that is needed to access the next newest piece of data
+		i_ If a new node is necessary, append one to the end of the linear linked list that holds the nodes
+	b_ Access the "address" location and copy the passed data into the already existsing structure
+2_ If passed a display all command
+	a_ Cycle through all of the currently contained data
+		i_ If a cycled data member is valid, output it to the screen
+3_ If passed a delete request
+	a_ Ensure the numnber is within valid terms (not below 0, not above the current number of data)
+	b_ Find the "address" of the data to be deleted
+	c_ Set the valid boolean to false, indicating that is no longer valid data
+4_ If told to seach by id
+	a_ recieve passed id, go to "address", and copy the data into the recieved structure
+5_ If told to delete everything
+	a_ Run code that is similar to the destructor, to deallocate memory
+	b_ Append a node to the end so that the ADT is ready to recieve more data

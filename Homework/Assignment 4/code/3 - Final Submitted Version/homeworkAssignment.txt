@@ -1,0 +1,22 @@
+Nick McComb CS163
+
+Assignment #4
+
+
+I used a gdb to determine at which point my program had seg faulted. GDB allowed me to determne in which frame stack the program had segmentation faulted, and it allowed me to determine where the program had failed.
+
+I wrote a short makefile for the current program, and it has allowed for me to extremely shorten my compile time. It is a relatively simple tool that has increased my productivity by only requiring me to compile what is necessary, and then linking the files immideately afterwards. I have included the makefile that I used in this assignment
+
+all: tree
+
+tree: main.o menu.o tree.o
+	g++ main.o menu.o tree.o
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+menu.o: menu.cpp
+	g++ -c menu.cpp
+
+tree.o: tree.cpp
+	g++ -c tree.cpp

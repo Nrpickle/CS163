@@ -1,0 +1,8 @@
+peek
+	sub menu
+		1 - view current weapon
+		2 - add weapon
+		3 - view all weapons
+		4 - remove all weapons
+		5 - delete current weapon
+		6 - exit interface

@@ -1,0 +1,38 @@
+Lab #5 Plan
+
+Requested data
+
+Base case
+  match == head->data;
+  
+Increment Step
+  head->next
+  
+Get done before
+  check for a match
+ 
+After
+  none
+  
+  
+Insert number 9 after 2
+i. !head
+ii. head->next
+iii. Check if the number is a 2
+iv. Nothing
+
+Display the last two items
+i. head->next->next == NULL
+ii. head->next
+iii. check if the next next node is NULL
+iv. Nothing
+
+
+Same Length
+i.  if (!head1 || !head2)
+ii.
+I would use a loop by traversing through both lists seperately and counting the nodes that they had
+iii. This loop could be replaced by a recursive call that iterates both loops at the same time and checks if the next node is NULL on either of them, and if it is NULL on both of the nodes at the same time, then the lists are the same length.
+It would need to compare the lists, then iterate if niether of the nodes are NULL
+iv. Nothing
+

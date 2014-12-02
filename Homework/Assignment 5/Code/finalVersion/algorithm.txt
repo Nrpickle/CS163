@@ -1,0 +1,64 @@
+Nick McComb CS163
+
+Assignment #5 Algorithm
+3/19/2013
+
+This program implements a directional graph with weighted edges using an adjacency list. For this program I used a previously developed ADT (program 1), a flexible array, to implement the adjacency list. The program is very modular in its design, as there is very little copying that is done within the graph ADT.  Most of the copying is done a in the flexible array or the structs that hold the data. 
+
+Much of the actual organization of the data is handled within the flexible already itself while the graph ADT mainly handles the edges. The method that the graph ADT uses to handle the edges is that it first determines the ID of the desired vertex, retrieves the data from the adjacency list, works with the data as required, then it edits the entry in the ajacency list so that it reflects any changes.  This is important when it comes to entering edges into the abstract data type.  This allows the algorithm to simply retrieve the old head pointer, store it in a temporary variable, then allocate a new node, and connect the linear linked list back up.
+
+Data insertion works by first inserting the names of street intersections initially, then defining the connections between them. When initially inserting a new intersection, only an array of characters is passed to the Graph abstract data type, and then the array of characters is designated an ID number, which references its absolute location in the flexible array. This ID number is then used when creating edges.  The process for creating an edge is to use command 2 To view all of the different entries in the flexible array so that you can determine their IDs so you can reference them while inserting. When the user decides to insert an edge, they are prompted for the ID of the first intersection and then the ID of the second intersection Along with the name of the street, the length of the street in miles, and the difficulty on a scale of 1 to 5.
+
+This information is then inserted into the correct edge node based off of the head pointer that was found in the adjacency list.  The second ID is also used to Retrieve the name of both of the intersections so that they can be returned to the menu class (the calling routine) And be outputted to the user to assist with ease of use. 
+
+Note: I have developed a small test plan that I have used with my graph. I have included the drawing of it, and to have the test suite connect the top image as show, simply create 7 entries, then enter '777' into the entry box, and it will connect them up
+
+1)
+The data structure performed extremely well for this application.  The graph ADT performed extremely well as a method of connecting the intersections in a meaningful way, that is easier for a user to interface with.
+
+The flexible array from the first assignment also provided a very effective way of implementing an adjacency list. 
+
+2) 
+
+I do not currently know of a data structure that would work better than this graph implementation. 
+
+3)
+
+An efficient aspect of my program was how I implemented the flexible array, so that it can dynamically have as much memory as it needs for the adjecency list, and not too much more.
+
+4)
+
+There were some aspects of my design that we're not efficient, some much more than others. One of the examples that stands out, is the method used for the final deallocation of all dynamically allocated memory. This system involves the traversing through the adjacency list deallocating each node individually, but it traverses to the node every time, instead of iterating through once. 
+
+5)
+
+If I had more time to solve the problem, I would fix the issues that were inefficient in my implementation.  I would also attempt to create more cohesion between the two major abstract data types.  I know this thing that I would implement, would be a deletion system.  There is already a delete function from the flexible array abstract data type, but it has not been implemented in the graph abstract data type.
+
+
+Client Program Algorithm
+
+1_ Loop until user says to ext
+	1a_ Get user choice
+	1b_ Preform an action based on user's selection
+		1b 
+			i_ Add new data
+				1_ Input user data
+				2_ Send user data to ADT
+			ii_ If display all
+				1_ Instruct ADT to display all currently held information
+			iii_ If Add a street
+				1_ Get the street information from the user
+				2_ Place it in a struct
+				3_ Pass the struct to the ADT
+				4_ Then output the 'returned' values, so the user knows what happened
+			iv_  If get connections from an intersection
+				1_  Prompt the user for the desired ID of the node they wish to get all adjacent verticies for
+				2_ Pass the node to the ADT
+				3_ Output the 'recieved' data
+			v_ If output all entries
+				1_ Instruct the ADT to output all entries
+			vi_ If exit
+				Set a variable within the menu class to return and indicate that it is time to exit
+			vii_ If traverse depths first
+				1_ Instruct the ADT to traverse, without visiting a node twice while outputing the information
+

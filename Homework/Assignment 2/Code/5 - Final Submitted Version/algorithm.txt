@@ -1,0 +1,68 @@
+Nick McComb  CS163
+2/12/2013
+
+Assignment #2
+
+	This program implements a stack of avatars that could be used by a user in a game. It allows a user to make a new avatar without deleting any older ones. It provides a stack of the avatars, with the avatar on the top of the stack the one that is currently being worked with. There are five actions that the user can preform in the main menu. They are allowed to add a new avatar, view their current avatar, access the Weapon Interface (which will be described later), view all avatars, and delete their current avatar. When a user adds an avatar, the program then places a new avatar at the head of the avatar stack. When they remove an avatar, the avatar is removed from the top of the stack.
+	The Weapon Interface allows the user to make changes to the weapons that the topmost avatar has. These weapons are stored in the form of a queue. The user is allowed to preform five actions on these weapons: Retrieve (view) their current weapon, add a new weapon to the queue, view all weapons in the queue, remove all weapons from the queue, and delete their current weapon. 
+	
+
+Algorithms:
+
+Main Executing Function's algorithm:
+
+	1. Display Choices to user
+	2. Read in the user's choice
+	3. Process the choice
+		a.If they want to add a new avatar,
+			i. Read in the avatar's information
+			ii. Pass the information to the stack ADT, which will place a copy of this information at the top of the avatar stack
+		b. If the user watnts to view their current avatar,
+			i. Retrieve (peek) the head avatar and display it from the avatar stack
+		c. If the user wants to access the weapon interface,
+			i. If an avatar exists,
+				1. Output the options for the weapons interface
+				2. Read in the user's choice
+				3. Process the choice
+					a. If they want to view their current weapon
+						i. Retreive the current weapon from the weapon queue of the current avatar
+					b. If they want to add a new weapon
+						i. Read in the infromation of the weapon
+						ii. Pass the information to the weapon queue of the current avatar
+					c. If they want to view all weapons
+						i. Call the dispAllWeapons function
+							1. Loop through (and display) the queue, starting at the begninng, until the tail of the queue is reached again
+							2. Output the tail
+					d. If they want to remove all weapons
+						i. Check if the queue has any weapons
+							1. If it does, dequeue a weapon
+					e. If the user wants to delete their current weapon
+						i. Dequeue their current weapon
+				4. Check if the user signified to exit the interface	
+					a. If they did, exit
+					b. If they did not, continune
+			ii. If it does not
+				1. Output an error message
+		d. If a user wants to view all current avatars
+			i. Output the contents of the avatar stack
+		e. If the user wants to delete an avatar,
+			i. pop an avatar off of the top of the stack (if it exists)
+		f. If the user chose to exit the function
+			i.  Exit the loop
+			ii. If they did not, continue to loop the function
+	
+Design Considerations
+
+	1)
+		The data structure for the weapon's queue works very well in this specific application. The stack used to control the avatars does not work very well, however. This stack if not very desiratble because to access any older avatars, the user has to delete their newest avatar.
+	2)
+		A circular linked list might have been a better design choice for a list of avatars. This would  allow the user to cycle through their current avatars as much as they liked without having to delete any that they did not want to.
+	3)
+		My design efficiently passed the structs that contained data to be inputted by reference to reduce the overhead that pass by value would have required.
+		
+	4)
+		My design was not efficient because it 
+		
+	5)
+		If I had more time to solve the problem I would have made a much nicer interface for the user. I would have made it so when they displayed their current avatar it would also display the avatar's current weapons.
+		
